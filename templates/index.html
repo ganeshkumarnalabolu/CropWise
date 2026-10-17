@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropWise | Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div class="logo">🌱 CropWise</div>
+            <p>Intelligent Crop Recommendation System</p>
+        </header>
+
+        <section class="card">
+            <h1>Find the right crop for your land</h1>
+            <p class="description">
+                Enter your soil nutrient values and environmental conditions.
+            </p>
+
+            {% if error %}
+                <div class="message error">{{ error }}</div>
+            {% endif %}
+
+            {% if prediction %}
+                <div class="message success">
+                    Recommended crop: <strong>{{ prediction|title }}</strong>
+                </div>
+            {% endif %}
+
+            <form action="/prediction" method="POST">
+                <div class="grid">
+                    <label>Nitrogen (N)
+                        <input type="number" name="N" step="any" required>
+                    </label>
+                    <label>Phosphorus (P)
+                        <input type="number" name="P" step="any" required>
+                    </label>
+                    <label>Potassium (K)
+                        <input type="number" name="K" step="any" required>
+                    </label>
+                    <label>Temperature (°C)
+                        <input type="number" name="temperature" step="any" required>
+                    </label>
+                    <label>Humidity (%)
+                        <input type="number" name="humidity" step="any" required>
+                    </label>
+                    <label>Soil pH
+                        <input type="number" name="ph" step="any" required>
+                    </label>
+                    <label class="full-width">Rainfall (mm)
+                        <input type="number" name="rainfall" step="any" required>
+                    </label>
+                </div>
+
+                <button type="submit">Recommend Crop</button>
+            </form>
+        </section>
+
+        <footer>
+            CropWise · Powered by Random Forest Machine Learning
+        </footer>
+    </main>
+</body>
+</html>

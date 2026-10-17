@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+.git/
+.env
+*.pem
+.ipynb_checkpoints/
+Crop_recommendation.csv
+train_model.py
+tests/
