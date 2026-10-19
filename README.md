@@ -73,7 +73,7 @@ pytest -v
 ```
 
 ## Deployment
-- AWS EC2 URL: To be added after deployment.
+- AWS EC2 URL: http://3.26.173.195:5000
 - Google Cloud Compute Engine URL: To be added after deployment.
 
 ## GitHub Repository
